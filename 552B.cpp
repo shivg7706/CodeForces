@@ -1,23 +1,28 @@
 #include<bits/stdc++.h>
+#define ll long long
 using namespace std;
 
+ll power(ll a,ll b)
+{
+	ll p=1;
+	for(ll i=0;i<b;i++)
+		p*=a;;
+	return p;
+}
 int main()
 {
-	long long int i,n,x,m,k,ans;
-    cin >> n;
-	x = n;
-	while (x)
+	ll a[10],n,temp,count=0;
+	a[0]=9;
+	cin>>n;
+	if(n%10==n){cout<<n<<endl;return 0;}
+	temp=n;
+	for(ll i=1;i<9;i++)
+		a[i]=9*power(10,i)*(i+1)+a[i-1];
+	
+	while(temp>0)
 	{
-		x /= 10;
-		m++;
+		temp/=10;
+		count++;
 	}
-	ans = n*m + m - 1;
-	k = 1;
-	for (i=0;i<m-1;i++)
-	{
-		k *= 10;
-		ans -=k;
-	}
-	cout << ans << endl;
-	return 0;
+	cout<<(n-(power(10,count-1)-1))*count+a[count-2]<<endl;
 }

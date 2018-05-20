@@ -17,10 +17,7 @@ int main()
 		if(s[i]=='R')
 			c++;
 		if(s[i]=='D')
-			d++;
-	
-
-	
+			d++;	
 	}
 	if(a>d)
 		a=d;
